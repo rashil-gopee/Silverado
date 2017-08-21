@@ -6,16 +6,20 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: 'Zilla Slab Highlight', cursive;
-    color: #c0b283;
+    font-family: 'Roboto', sans-serif;
+    color: #f2f5fa;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: #68A691;
 }
 
 main section {
-    padding: 2em;
+    padding: 4em;
 }
 
 main section.banner {
-    background-image: url('http://cdn.hoyts.com.au/media/814308/cinema_banner.jpg');
+    background-image: url('https://labs.mil.up.pt/blogs/carolinaalves/wp-content/uploads/sites/124/2016/10/cinema-1214189817jpg.jpeg');
     height: 600px;
     background-attachment: fixed;
     background-position: center center;
@@ -23,32 +27,38 @@ main section.banner {
     background-size: cover;
     padding: 0em;
     text-align: center;
+    /* https://css-tricks.com/centering-css-complete-guide/ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header {
-    background-color: #373737;
+    background-color: #252831;
     /* color: #f4f4f4; */
-    color: #dcd0c0;
+    color: #f2f5fa;
     height: 60px;
     width: 100%;
     position: fixed;
-    padding: 0em 2em;
+    padding: 0em 4em;
 }
 
 header a {
-    color: #c2c1c2;
+    color: #f2f5fa;
     text-decoration: none;
 }
 
 header h1 {
-    color: #c2c1c2;
+    color: #f2f5fa;
     margin: 0px;
     padding-top: 10px;
+    text-align: left;
+    text-decoration: none;
 }
 
 nav {
-    padding: 0em 2em;
-    background-color: #373737;
+    padding: 0em 4em;
+    background-color: #252831;
     /* color: #f4f4f4; */
     height: 30px;
     width: 100%;
@@ -58,7 +68,7 @@ nav {
 
 nav a {
     /* background-color: #dcd0c0; */
-    color: #dcd0c0;
+    color: #f2f5fa;
     /* height: 30px; */
     font-weight: 900;
     padding: 0em 1em;
@@ -68,13 +78,12 @@ nav a {
 }
 
 nav a.active {
-    background-color: #c2c1c2;
-    color: #373737;
+    background-color: #f2f5fa;
+    color: #252831;
 }
 
 nav a:hover {
-    background-color: #dcd0c0;
-    color: #373737;
+    border-bottom: 2px solid #68A691;
 }
 
 body {
@@ -82,11 +91,11 @@ body {
 }
 
 main {
+    background-color: #333b48;
+    color: #f2f5fa;
+    width: 100%;
     margin-top: 90px;
     display: inline-grid;
-    background-color: #f4f4f4;
-    background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 main p {
@@ -94,12 +103,12 @@ main p {
 }
 
 fieldset {
-    border-color: #c0b283;
+    border-color: #68A691;
     border-style: inset;
 }
 
 footer {
-    background-color: #dcd0c0;
-    color: #373737;
-    padding: 2em;
+    background-color: #252831;
+    color: #f2f5fa;
+    padding: 4em;
 }

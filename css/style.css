@@ -15,12 +15,12 @@ h4 {
 }
 
 main section {
-    padding: 4em;
+    padding: 3em 4em;
 }
 
 main section.banner {
-    background-image: url('https://labs.mil.up.pt/blogs/carolinaalves/wp-content/uploads/sites/124/2016/10/cinema-1214189817jpg.jpeg');
-    height: 600px;
+    background-image: url('http://www.usa.lighting.philips.com/b-dam/b2b-li/en_AA/products/special-lighting/special-lighting-main/Cinema-3d-visual.jpg');
+    height: 500px;
     background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
@@ -28,6 +28,21 @@ main section.banner {
     padding: 0em;
     text-align: center;
     /* https://css-tricks.com/centering-css-complete-guide/ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner h1 {
+    text-shadow: 2px 2px #000;
+    font-size: 64px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.align-center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,12 +118,70 @@ main p {
 }
 
 fieldset {
-    border-color: #68A691;
-    border-style: inset;
+    border: 1px solid #68A691;
+    padding: 10px;
+    margin: 10px;
 }
 
 footer {
     background-color: #252831;
     color: #f2f5fa;
-    padding: 4em;
+    padding: 3em 4em;
+}
+
+
+/* Now showing */
+
+.movie-box {
+    width: 25%;
+    float: left;
+}
+
+.movie-box div {
+    padding: 10px;
+}
+
+.movie-box img {
+    width: 100%;
+    border: 2px solid #fff;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #68A691;
+}
+
+th,
+td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #f2f5fa;
+}
+
+form button {
+    float: right;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #000;
+    background-color: #fff;
+}
+
+form button:hover {
+    color: #fff;
+    background-color: #68A691;
+}
+
+form select,
+input {
+    border: 1px solid #68A691;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 992px) {
+    .movie-box {
+        width: 100%;
+    }
 }

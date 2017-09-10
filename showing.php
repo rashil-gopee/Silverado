@@ -2,32 +2,33 @@
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./css/style.css" />
+    <title>Silverado | Your new Dolby cinema</title>
 </head>
 
 <body>
     <header>
-        <a href="./index.html">
+        <a href="./index.php">
             <h1>Silverado</h1>
         </a>
     </header>
     <nav>
-        <a href="./index.html">Home</a>
-        <a class="active" href="./showing.html">Now showing</a>
+        <a href="./index.php">Home</a>
+        <a class="active" href="./showing.php">Now showing</a>
     </nav>
     <main>
         <section>
             <h1>Now showing</h1>
-            <div style="width: 100%">
+            <div class="movie-box-wrapper">
                 <div class="movie-box">
                     <div>
                         <img src="https://yts.ag/assets/images/movies/the_lego_batman_movie_2017/medium-cover.jpg">
                         <h3>LEGO Batman</h3>
                         <strong>Genre:&nbsp;</strong>Childrens
                         <br>
-                        <strong>Sessions</strong>
+                        <strong>Sessions:</strong>
                         <ul>
                             <li>Mon - Tue @ 13.00</li>
                             <li>Wed - Fri @ 18.00</li>
@@ -41,7 +42,7 @@
                         <h3>A Quiet Passion</h3>
                         <strong>Genre:&nbsp;</strong>Art/Foreign
                         <br>
-                        <strong>Sessions</strong>
+                        <strong>Sessions:</strong>
                         <ul>
                             <li>Mon - Tue @ 18.00</li>
                             <li>Sat - Sun @ 15.00</li>
@@ -54,7 +55,7 @@
                         <h3>La La Land</h3>
                         <strong>Genre:&nbsp;</strong>Romantic/Comedy
                         <br>
-                        <strong>Sessions</strong>
+                        <strong>Sessions:</strong>
                         <ul>
                             <li>Mon - Tue @ 21.00</li>
                             <li>Wed - Fri @ 13.00</li>
@@ -68,7 +69,7 @@
                         <h3>John Rambo</h3>
                         <strong>Genre:&nbsp;</strong>Action
                         <br>
-                        <strong>Sessions</strong>
+                        <strong>Sessions:</strong>
                         <ul>
                             <li>Wed - Fri @ 21.00</li>
                             <li>Sat - Sun @ 21.00</li>
@@ -138,7 +139,7 @@
 
         <section>
             <!-- Starting form code sourced and adapted from https://titan.csit.rmit.edu.au/~e54061/wp/silverado-test.php -->
-            <form method='post' action="https://titan.csit.rmit.edu.au/~e54061/wp/silverado-test.php?ref=showing">
+            <form method="post" action="https://titan.csit.rmit.edu.au/~e54061/wp/silverado-test.php?ref=showing">
                 <fieldset>
                     <legend>
                         <h1>Booking Form</h1>
@@ -204,7 +205,7 @@
                             <p><label>Child</label>&nbsp;<input type="number" name="seats[BC]" value=0></p>
                         </fieldset>
                     </fieldset>
-                    <p><button>Book</button></p>
+                    <button type="submit" role="button">Book</button>
                 </fieldset>
             </form>
         </section>

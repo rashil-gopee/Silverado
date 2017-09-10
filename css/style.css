@@ -6,7 +6,7 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Fjalla One', sans-serif;
     color: #f2f5fa;
     text-transform: uppercase;
     text-align: center;
@@ -27,20 +27,25 @@ main section.banner {
     background-size: cover;
     padding: 0em;
     text-align: center;
-    /* https://css-tricks.com/centering-css-complete-guide/ */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.banner h1,
+.banner h2 {
+    text-shadow: 2px 2px #000;
+    text-decoration: none;
+    text-transform: none;
 }
 
 .banner h1 {
-    text-shadow: 2px 2px #000;
     font-size: 64px;
     margin-left: 50px;
     margin-right: 50px;
     text-decoration: none;
-    text-transform: none;
+    text-transform: uppercase;
 }
+
+
+/* Starting align-center class code sourced and adapted from https://css-tricks.com/centering-css-complete-guide */
 
 .align-center {
     display: flex;
@@ -48,9 +53,11 @@ main section.banner {
     align-items: center;
 }
 
+
+/* End of starting align-center class code */
+
 header {
     background-color: #252831;
-    /* color: #f4f4f4; */
     color: #f2f5fa;
     height: 60px;
     width: 100%;
@@ -82,9 +89,7 @@ nav {
 }
 
 nav a {
-    /* background-color: #dcd0c0; */
     color: #f2f5fa;
-    /* height: 30px; */
     font-weight: 900;
     padding: 0em 1em;
     margin-right: 5px;
@@ -113,7 +118,8 @@ main {
     display: inline-grid;
 }
 
-main p {
+p,
+li {
     line-height: 1.5;
 }
 
@@ -129,8 +135,36 @@ footer {
     padding: 3em 4em;
 }
 
+p a {
+    color: #68A691;
+}
+
+ol li h4 {
+    text-align: left;
+}
+
+.box-left {
+    width: 50%;
+    float: left;
+    margin: 10px;
+}
+
+.box-right {
+    width: 50%;
+    float: right;
+    margin: 10px;
+}
+
+.box img {
+    width: 100%;
+}
+
 
 /* Now showing */
+
+.movie-box-wrapper {
+    width: 100%;
+}
 
 .movie-box {
     width: 25%;
@@ -167,6 +201,9 @@ form button {
     text-transform: uppercase;
     color: #000;
     background-color: #fff;
+    font-weight: 900;
+    border-style: none;
+    font-family: 'Fjalla One', sans-serif;
 }
 
 form button:hover {
@@ -183,5 +220,8 @@ input {
 @media only screen and (max-width: 992px) {
     .movie-box {
         width: 100%;
+    }
+    .movie-box div {
+        padding: 20px;
     }
 }

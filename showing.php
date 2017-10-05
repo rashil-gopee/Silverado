@@ -208,7 +208,7 @@ include_once('./tpl/menu.tpl.php');
 </main>
 <?php
 
-include_once('./tpl/menu.tpl.php');
+include_once('./tpl/footer.tpl.php');
 
 ?>
 

@@ -52,7 +52,7 @@ include_once ('./tpl/menu.tpl.php');
                         </li>
                         <li>
                             <h4>First Class Seats (12)</h4>
-                            <strong>Boking options:</strong>
+                            <strong>Booking options:</strong>
                             <ul>
                                 <li>Adult</li>
                                 <li>Child (Under 12)</li>
@@ -80,6 +80,8 @@ include_once ('./tpl/menu.tpl.php');
 include_once ('./tpl/menu.tpl.php');
 
 ?>
+
+
 
 </body>
 

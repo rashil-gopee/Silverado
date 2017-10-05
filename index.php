@@ -4,21 +4,20 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./css/general.css" />
     <link type="text/css" rel="stylesheet" href="./css/style.css" />
     <title>Silverado | Your new Dolby cinema</title>
 </head>
 
 <body>
-    <header>
-        <a href="./index.php">
-            <h1>SILVERADO</h1>
-        </a>
-    </header>
-    <nav>
-        <a class="active" href="./index.php">Home</a>
-        <a href="./showing.php">Now showing</a>
-    </nav>
-    <main>
+
+<?php
+
+include_once ('./tpl/menu.tpl.php');
+
+?>
+
+    <main id="home">
         <section class="banner align-center">
             <div>
                 <h1>YES WE ARE BACK!</h1>
@@ -61,7 +60,7 @@
                         </li>
                         <li>
                             <h4>New Bean Bags Seats (13)</h4>
-                            <strong>Boking options:</strong>
+                            <strong>Booking options:</strong>
                             <ul>
                                 <li>Adult (2 adults)</li>
                                 <li>Family (1 adult and 1 child)</li>
@@ -75,9 +74,13 @@
         </section>
         <!-- End of Starting form code -->
     </main>
-    <footer>
-        Copyright © 2017 <strong>Silverado</strong>
-    </footer>
+
+<?php
+
+include_once ('./tpl/menu.tpl.php');
+
+?>
+
 </body>
 
 </html>

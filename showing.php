@@ -4,21 +4,18 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./css/general.css" />
     <link type="text/css" rel="stylesheet" href="./css/style.css" />
     <title>Silverado | Your new Dolby cinema</title>
 </head>
 
 <body>
-    <header>
-        <a href="./index.php">
-            <h1>Silverado</h1>
-        </a>
-    </header>
-    <nav>
-        <a href="./index.php">Home</a>
-        <a class="active" href="./showing.php">Now showing</a>
-    </nav>
-    <main>
+<?php
+
+include_once ('./tpl/menu.tpl.php');
+
+?>
+    <main id="showing">
         <section>
             <h1>Now showing</h1>
             <div class="movie-box-wrapper">
@@ -139,7 +136,7 @@
 
         <section>
             <!-- Starting form code sourced and adapted from https://titan.csit.rmit.edu.au/~e54061/wp/silverado-test.php -->
-            <form method="post" action="https://titan.csit.rmit.edu.au/~e54061/wp/silverado-test.php?ref=showing">
+            <form method="post" action="cart.php">
                 <fieldset>
                     <legend>
                         <h1>Booking Form</h1>
@@ -211,9 +208,11 @@
         </section>
         <!-- End of Starting form code -->
     </main>
-    <footer>
-        Copyright © 2017 <strong>Silverado</strong>
-    </footer>
+<?php
+
+include_once ('./tpl/menu.tpl.php');
+
+?>
 </body>
 
 </html>

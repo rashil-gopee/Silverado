@@ -1,24 +1,5 @@
-html * {
-    font-family: 'Encode Sans', sans-serif;
-}
 
-h1,
-h2,
-h3,
-h4 {
-    font-family: 'Fjalla One', sans-serif;
-    color: #f2f5fa;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: underline;
-    text-decoration-color: #68A691;
-}
-
-main section {
-    padding: 3em 4em;
-}
-
-main section.banner {
+#home section.banner {
     background-image: url('http://www.usa.lighting.philips.com/b-dam/b2b-li/en_AA/products/special-lighting/special-lighting-main/Cinema-3d-visual.jpg');
     height: 500px;
     background-attachment: fixed;
@@ -29,14 +10,14 @@ main section.banner {
     text-align: center;
 }
 
-.banner h1,
-.banner h2 {
+#home .banner h1,
+#home .banner h2 {
     text-shadow: 2px 2px #000;
     text-decoration: none;
     text-transform: none;
 }
 
-.banner h1 {
+#home .banner h1 {
     font-size: 64px;
     margin-left: 50px;
     margin-right: 50px;
@@ -44,184 +25,78 @@ main section.banner {
     text-transform: uppercase;
 }
 
-
-/* Starting align-center class code sourced and adapted from https://css-tricks.com/centering-css-complete-guide */
-
-.align-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* End of starting align-center class code */
-
-header {
-    background-color: #252831;
-    color: #f2f5fa;
-    height: 60px;
-    width: 100%;
-    position: fixed;
-    padding: 0em 4em;
-}
-
-header a {
-    color: #f2f5fa;
-    text-decoration: none;
-}
-
-header h1 {
-    color: #f2f5fa;
-    margin: 0px;
-    padding-top: 10px;
-    text-align: left;
-    text-decoration: none;
-}
-
-nav {
-    padding: 0em 4em;
-    background-color: #252831;
-    /* color: #f4f4f4; */
-    height: 30px;
-    width: 100%;
-    position: fixed;
-    margin-top: 60px;
-}
-
-nav a {
-    color: #f2f5fa;
-    font-weight: 900;
-    padding: 0em 1em;
-    margin-right: 5px;
-    text-decoration: none;
-    text-align: center;
-}
-
-nav a.active {
-    background-color: #f2f5fa;
-    color: #252831;
-}
-
-nav a:hover {
-    border-bottom: 2px solid #68A691;
-}
-
-body {
-    margin: 0px;
-}
-
-main {
-    background-color: #333b48;
-    color: #f2f5fa;
-    width: 100%;
-    margin-top: 90px;
-    display: inline-grid;
-}
-
-p,
-li {
-    line-height: 1.5;
-}
-
-fieldset {
-    border: 1px solid #68A691;
-    padding: 10px;
-    margin: 10px;
-}
-
-footer {
-    background-color: #252831;
-    color: #f2f5fa;
-    padding: 3em 4em;
-}
-
-p a {
-    color: #68A691;
-}
-
-ol li h4 {
+#home ol li h4 {
     text-align: left;
 }
 
-.box-left {
+#home .box-left {
     width: 50%;
     float: left;
     margin: 10px;
 }
 
-.box-right {
+#home .box-right {
     width: 50%;
     float: right;
     margin: 10px;
 }
 
-.box img {
+#home .box img {
     width: 100%;
 }
+
+
+
 
 
 /* Now showing */
 
-.movie-box-wrapper {
+#showing fieldset {
+    border: 1px solid #68A691;
+    padding: 10px;
+    margin: 10px;
+}
+
+#showing .movie-box-wrapper {
     width: 100%;
 }
 
-.movie-box {
+#showing .movie-box {
     width: 25%;
     float: left;
 }
 
-.movie-box div {
+#showing .movie-box div {
     padding: 10px;
 }
 
-.movie-box img {
+#showing .movie-box img {
     width: 100%;
     border: 2px solid #fff;
 }
 
-table {
+#showing table {
     width: 100%;
 }
 
-th {
+#showing th {
     background-color: #68A691;
 }
 
-th,
-td {
+#showing th,
+#showing td {
     padding: 5px;
     text-align: center;
     border: 1px solid #f2f5fa;
 }
 
-form button {
-    float: right;
-    padding: 10px;
-    text-transform: uppercase;
-    color: #000;
-    background-color: #fff;
-    font-weight: 900;
-    border-style: none;
-    font-family: 'Fjalla One', sans-serif;
-}
 
-form button:hover {
-    color: #fff;
-    background-color: #68A691;
-}
-
-form select,
-input {
-    border: 1px solid #68A691;
-    padding: 5px;
-}
 
 @media only screen and (max-width: 992px) {
-    .movie-box {
+    #showing .movie-box {
         width: 100%;
     }
-    .movie-box div {
+    #showing .movie-box div {
         padding: 20px;
     }
 }

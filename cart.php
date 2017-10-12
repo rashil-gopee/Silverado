@@ -20,6 +20,7 @@ if (!empty($_POST)) {
     $_SESSION['cart'][$_POST['movie']] = $booking;
 }
 
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,7 +65,10 @@ include_once('./tpl/menu.tpl.php');
             $grandTotal = 0;
             foreach ($_SESSION['cart'] as $key => $value) {
                 echo $key . "<br>";
-
+                echo "<form method='post' action='delete_booking.php'>";
+                echo "<input hidden name='movie' value='" . $key . "'></input>";
+                echo "<button type='submit'>Delete</button>";
+                echo "</form>";
 
                 foreach ($value as $movie => $movieDetail) {
                     $total = 0;
@@ -95,9 +99,10 @@ include_once('./tpl/menu.tpl.php');
                     }
                     $grandTotal = $grandTotal + $total;
                 };
-
+                echo "<label>Grand Total: </label>$" . $grandTotal;
+                echo "<a href='customer_details.php'>Proceed to checkout</a>";
             };
-            echo "<label>Grand Total: </label>$" . $grandTotal;
+
         }
 
         //        // remove all session variables

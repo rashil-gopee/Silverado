@@ -142,14 +142,16 @@ include_once('./tpl/menu.tpl.php');
                 <legend>
                     <h1>Booking Form</h1>
                 </legend>
-                <p><label>Movie:</label>&nbsp;
+                <p><label>Movie:</label>&nbsp;</p>
+                <p>
                     <select name="movie" onchange="generateSessionOptions(this.value)">
                         <option value="CH" selected>LEGO Batman</option>
                         <option value="AF">A Quiet Passion</option>
                         <option value="RC">La la land</option>
                         <option value="AC">John Rambo</option>
                     </select></p>
-                <p><label>Session:</label>&nbsp;<select name="session" id="session" onchange="updateSeatCosts()">
+                <p><label>Session:</label>&nbsp</p>
+                <p><select name="session" id="session" onchange="updateSeatCosts()">
                     </select></p>
                 <fieldset>
                     <legend>
@@ -159,43 +161,43 @@ include_once('./tpl/menu.tpl.php');
                         <legend>
                             <h3>Standard</h3>
                         </legend>
-                        <p><label>Adult:</label>&nbsp;<input type="number" name="seats[SF]" id="SF" value=0 min=0 max=40
-                                                             onchange="updateSeatCosts()"></p>
-                        <p>$ <span id="SFCost">0.00</span></p>
+                        <p><label>Adult:</label></p>
+                        <p><input type="number" name="seats[SF]" id="SF" value=0 min=0 max=40
+                                  onchange="updateSeatCosts()">&nbsp;$ <span id="SFCost">0.00</span></p>
 
-                        <p><label>Concession:</label>&nbsp;<input type="number" name="seats[SP]" id="SP" value=0 min=0
-                                                                  max=40
-                                                                  onchange="updateSeatCosts()"></p>
-                        <p>$ <span id="SPCost">0.00</span></p>
-                        <p><label>Child:</label>&nbsp;<input type="number" name="seats[SC]" id="SC" value=0 min=0 max=40
-                                                             onchange="updateSeatCosts()"></p>
-                        <p>$ <span id="SCCost">0.00</span></p>
+                        <p><label>Concession:</label></p>
+                        <p><input type="number" name="seats[SP]" id="SP" value=0 min=0
+                                  max=40
+                                  onchange="updateSeatCosts()">&nbsp;$ <span id="SPCost">0.00</span></p>
+                        <p><label>Child:</label></p>
+                        <p><input type="number" name="seats[SC]" id="SC" value=0 min=0 max=40
+                                  onchange="updateSeatCosts()">&nbsp;$ <span id="SCCost">0.00</span></p>
                     </fieldset>
                     <fieldset>
                         <legend>
                             <h3>First Class
                             </h3>
                         </legend>
-                        <p><label>Adult</label>&nbsp;<input type="number" name="seats[FA]" id="FA" value=0 min=0 max=12
-                                                            onchange="updateSeatCosts()"></p>
-                        <p>$ <span id="FACost">0.00</span></p>
-                        <p><label>Child</label>&nbsp;<input type="number" name="seats[FC]" id="FC" value=0 min=0 max=12
-                                                            onchange="updateSeatCosts()"></p>
-                        <p>$ <span id="FCCost">0.00</span></p>
+                        <p><label>Adult</label></p>
+                        <p><input type="number" name="seats[FA]" id="FA" value=0 min=0 max=12
+                                  onchange="updateSeatCosts()">&nbsp;$ <span id="FACost">0.00</span></p>
+                        <p><label>Child</label></p>
+                        <p><input type="number" name="seats[FC]" id="FC" value=0 min=0 max=12
+                                  onchange="updateSeatCosts()">&nbsp;$ <span id="FCCost">0.00</span></p>
                     </fieldset>
                     <fieldset>
                         <legend>
                             <h3>Bean Bags</h3>
                         </legend>
-                        <p><label>Adult</label>&nbsp;<input type="number" name="seats[BA]" id="BA" min=0 max=13
-                                                            value=0 onchange="updateSeatCosts()"></p>
-                        <p>$ <span id="BACost">0.00</span></p>
-                        <p><label>Family</label>&nbsp;<input type="number" name="seats[BF]" id="BF" value=0 min=0 max=13
-                                                             onchange="updateSeatCosts()"></p>
-                        <p>$ <span id="BFCost">0.00</span></p>
-                        <p><label>Child</label>&nbsp;<input type="number" name="seats[BC]" id="BC" value=0 min=0 max=13
-                                                            onchange="updateSeatCosts()"></p>
-                        <p>$ <span id="BCCost">0.00</span></p>
+                        <p><label>Adult</label></p>
+                        <p><input type="number" name="seats[BA]" id="BA" min=0 max=13
+                                  value=0 onchange="updateSeatCosts()">&nbsp;$ <span id="BACost">0.00</span></p>
+                        <p><label>Family</label></p>
+                        <p><input type="number" name="seats[BF]" id="BF" value=0 min=0 max=13
+                                  onchange="updateSeatCosts()">&nbsp;$ <span id="BFCost">0.00</span></p>
+                        <p><label>Child</label></p>
+                        <p><input type="number" name="seats[BC]" id="BC" value=0 min=0 max=13
+                                  onchange="updateSeatCosts()">&nbsp;$ <span id="BCCost">0.00</span></p>
                     </fieldset>
                     <label>Total Cost:&nbsp;</label>
                     <p>$ <span id="TotalCost">0.00</span></p>

@@ -18,7 +18,6 @@ main section {
     padding: 3em 4em;
 }
 
-
 /* Starting align-center class code sourced and adapted from https://css-tricks.com/centering-css-complete-guide */
 
 .align-center {
@@ -26,7 +25,6 @@ main section {
     justify-content: center;
     align-items: center;
 }
-
 
 /* End of starting align-center class code */
 
@@ -97,7 +95,6 @@ li {
     line-height: 1.5;
 }
 
-
 footer {
     background-color: #252831;
     color: #f2f5fa;
@@ -128,4 +125,55 @@ input {
 
 p a {
     color: #68A691;
+}
+
+input {
+    width: 250px;
+}
+
+select {
+    width: 250px;
+}
+
+#cart table {
+    width: 100%;
+}
+
+#showing table {
+    width: 100%;
+}
+
+#cart th {
+    background-color: #68A691;
+}
+
+#cart th,
+#cart td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #f2f5fa;
+}
+
+#checkout table {
+    width: 100%;
+    color: #000000;
+    background-color: #e8e8e8;
+    border: 1px solid #000000;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+#checkout table thead {
+    font-weight: bold;
+}
+
+#checkout th {
+    background-color: #f2f5fa;
+}
+
+#checkout th,
+#checkout td {
+    padding: 5px;
+    border-bottom: 1px solid #000;
+    text-align: left;
 }

@@ -1,13 +1,8 @@
 <?php
 
-// Start the session
 session_start();
 
-//// remove all session variables
-//session_unset();
-//
-//// destroy the session
-//session_destroy();
+include 'functions.php';
 
 if (!empty($_POST)) {
     $booking = array($_POST['session'], $_POST['seats']);
@@ -19,7 +14,6 @@ if (!empty($_POST)) {
     $_SESSION['cart'][$_POST['movie']] = array();
     $_SESSION['cart'][$_POST['movie']] = $booking;
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -40,41 +34,25 @@ include_once('./tpl/menu.tpl.php');
 
 ?>
 
-<main id="showing">
+<main id="cart">
     <section>
-
+        <h1>Cart</h1>
         <?php
         if (isset($_SESSION['cart'])) {
 
-//            foreach ($_SESSION['cart'] as $key => $value) {
-//
-//                echo $key . "&nbsp;";
-//
-//                foreach ($value as $pkey => $pvalue) {
-//                    if (!(is_array($pvalue)))
-//                        echo $pkey . '-' . $pvalue;
-//                    else {
-//                        foreach ($pvalue as $qkey => $qvalue) {
-//                            echo $qkey . '-' . $qvalue;
-//                        }
-//                    }
-//                };
-//
-//            };
-
             $grandTotal = 0;
             foreach ($_SESSION['cart'] as $key => $value) {
-                echo $key . "<br>";
+                echo getMovie($key) . "<br>";
                 echo "<form method='post' action='delete_booking.php'>";
                 echo "<input hidden name='movie' value='" . $key . "'></input>";
-                echo "<button type='submit'>Delete</button>";
+                echo "<button type='submit'>Delete from Cart</button>";
                 echo "</form>";
 
                 foreach ($value as $movie => $movieDetail) {
                     $total = 0;
                     if (!(is_array($movieDetail))) {
-                        echo $movie . '-' . $movieDetail;
                         $session = $movieDetail;
+                        echo getDay($session) . ' ' . getTime($session) . ' pm';
                     } else {
 
                         echo "<table><thead><tr><th>Ticket Type</th><th>Cost</th><th>Qty</th><th>Subtotal</th></tr></thead>";
@@ -84,7 +62,7 @@ include_once('./tpl/menu.tpl.php');
                             $total = $total + $subtotal;
                             if ($amount > 0) {
                                 echo "<tr>";
-                                echo "<td>" . $seatType . "</td>";
+                                echo "<td>" . getSeat($seatType) . "</td>";
                                 echo "<td>$" . getTicketPrice($seatType, $session) . "</td>";
                                 echo "<td>" . $amount . "</td>";
                                 echo "<td>$" . number_format($subtotal, 2) . "</td>";
@@ -94,82 +72,31 @@ include_once('./tpl/menu.tpl.php');
                         logMessage($total);
                         echo "<tr><td colspan='3'><label>Total:</label></td><td>$" . number_format($total, 2) . "</td></tr>";
                         echo "</tbody>";
-                        echo "</table>";
+                        echo "</table><br>";
 
                     }
                     $grandTotal = $grandTotal + $total;
                 };
-                echo "<label>Grand Total: </label>$" . $grandTotal;
-                echo "<a href='customer_details.php'>Proceed to checkout</a>";
+
             };
-
-        }
-
-        //        // remove all session variables
-        //        session_unset();
-        //
-        //        // destroy the session
-        //        session_destroy();
-        function getTicketPrice($seatType, $session)
-        {
-            $price = 0;
-            if (isCheap($session)) {
-                if ($seatType == 'SF')
-                    $price = 12.50;
-                else if ($seatType == 'SP')
-                    $price = 10.50;
-                else if ($seatType == 'SC')
-                    $price = 8.50;
-                else if ($seatType == 'FA')
-                    $price = 25.00;
-                else if ($seatType == 'FC')
-                    $price = 20.00;
-                else if ($seatType == 'BA')
-                    $price = 22.00;
-                else if ($seatType == 'BF')
-                    $price = 20.00;
-                else if ($seatType == 'BC')
-                    $price = 20.00;
-            } else {
-                if ($seatType == 'SF')
-                    $price = 18.50;
-                else if ($seatType == 'SP')
-                    $price = 15.50;
-                else if ($seatType == 'SC')
-                    $price = 12.50;
-                else if ($seatType == 'FA')
-                    $price = 30.00;
-                else if ($seatType == 'FC')
-                    $price = 25.00;
-                else if ($seatType == 'BA')
-                    $price = 33.00;
-                else if ($seatType == 'BF')
-                    $price = 30.00;
-                else if ($seatType == 'BC')
-                    $price = 30.00;
-            }
-            return number_format($price, 2);
-        }
-
-        function isCheap($session)
-        {
-            $day = substr($session, 0, 3);
-            $time = (int)substr($session, 4, 2);
-
-            if ($day == 'MON' || $day == 'TUE')
-                return true;
-            else if (($day == 'WED' || $day == 'THU' || $day == 'FRI') && $time <= 13)
-                return true;
-            else
-                return false;
-        }
-
-        function logMessage($text)
-        {
-            echo "<script>console.log(\"$text\")</script>";
+            echo "<label>Grand Total: </label>$" . $grandTotal . "<br>";
+            echo "<a href='customer_details.php'>Proceed to checkout</a>";
         }
 
         ?>
+    </section>
+
+    <section>
+        <form action="checkout.php" name="form" method="post" onsubmit="return validateForm();">
+            <p><label>Your name</label></p>
+            <p><input type="text" name="name" required>
+            <p><label>Phone number</label></p>
+            <p><input type="text" name="phone" required></p>
+            <p><label>Email</label></p>
+            <p><input type="email" name="email" required></p>
+            <p style="text-align: center;"><input type="submit" value="Proceed to Checkout" name="submit" class="button"
+                                                  onclick="javascript:return validateMyForm();"/></p>
+        </form>
     </section>
 </main>
 <?php
@@ -177,5 +104,19 @@ include_once('./tpl/menu.tpl.php');
 include_once('./tpl/footer.tpl.php');
 
 ?>
+
+<script type="text/javascript">
+    function validateForm() {
+        var phone = document.forms["form"]["phone"].value;
+        var phonepattern = /^0[0-8]\d{8}$/g;
+        if (phone.match(phonepattern)) {
+            return true;
+        } else {
+            alert("phone number is invalid. Please Enter an australian mobile number ");
+            return false;
+        }
+    }
+</script>
+
 </body>
 </html>

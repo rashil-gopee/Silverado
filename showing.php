@@ -1,12 +1,19 @@
+<?php
+
+include 'config.php';
+session_start();
+
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Encode+Sans" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./css/general.css"/>
-    <link type="text/css" rel="stylesheet" href="./css/style.css"/>
-    <title>Silverado | Your new Dolby cinema</title>
+    <?php
+
+    include_once('./tpl/head.tpl.php');
+
+    ?>
+    <title>Silverado | Your new Dolby cinema - Now Showing</title>
 </head>
 
 <body onload="generateSessionOptions('CH')">
@@ -15,6 +22,12 @@
 include_once('./tpl/menu.tpl.php');
 
 ?>
+
+<nav>
+    <a href="./index.php">Home</a>
+    <a class="active" href="./showing.php">Now showing</a>
+    <a href="./cart.php">Cart</a>
+</nav>
 
 <main id="showing">
     <section>
@@ -137,7 +150,7 @@ include_once('./tpl/menu.tpl.php');
 
     <section>
         <!-- Starting form code sourced and adapted from https://titan.csit.rmit.edu.au/~e54061/wp/silverado-test.php -->
-        <form method="post" action="cart.php">
+        <form method="post" action="cart.php" name="bookingForm">
             <fieldset>
                 <legend>
                     <h1>Booking Form</h1>
@@ -199,10 +212,12 @@ include_once('./tpl/menu.tpl.php');
                         <p><input type="number" name="seats[BC]" id="BC" value=0 min=0 max=13
                                   onchange="updateSeatCosts()">&nbsp;$ <span id="BCCost">0.00</span></p>
                     </fieldset>
-                    <label>Total Cost:&nbsp;</label>
-                    <p>$ <span id="TotalCost">0.00</span></p>
+                    <div style="margin: 15px;">
+                        <label>Total Cost:&nbsp;</label>
+                        <p>$ <span id="TotalCost">0.00</span></p>
+                    </div>
                 </fieldset>
-                <button type="submit" role="button">Book</button>
+                <button type="submit" role="button" style="float: none; margin: 15px;">Book</button>
             </fieldset>
         </form>
     </section>
@@ -285,14 +300,15 @@ include_once('./tpl/footer.tpl.php');
             BC: 0
         };
 
-        var SFAmount = document.getElementById('SF').value;
-        var SPAmount = document.getElementById('SP').value;
-        var SCAmount = document.getElementById('SC').value;
-        var FAAmount = document.getElementById('FA').value;
-        var FCAmount = document.getElementById('FC').value;
-        var BAAmount = document.getElementById('BA').value;
-        var BFAmount = document.getElementById('BF').value;
-        var BCAmount = document.getElementById('BC').value;
+
+        var SFAmount = document.forms["bookingForm"]["seats[SF]"].value;
+        var SPAmount = document.forms["bookingForm"]["seats[SP]"].value;
+        var SCAmount = document.forms["bookingForm"]["seats[SC]"].value;
+        var FAAmount = document.forms["bookingForm"]["seats[FA]"].value;
+        var FCAmount = document.forms["bookingForm"]["seats[FC]"].value;
+        var BAAmount = document.forms["bookingForm"]["seats[BA]"].value;
+        var BFAmount = document.forms["bookingForm"]["seats[BF]"].value;
+        var BCAmount = document.forms["bookingForm"]["seats[BC]"].value;
 
         console.log('SFAmount', SFAmount);
 

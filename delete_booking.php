@@ -6,10 +6,11 @@
  * Time: 1:41 AM
  */
 
+include 'config.php';
 session_start();
 
 if (!empty($_POST)) {
-    
+
     if (isset($_SESSION['cart'])) {
         unset($_SESSION['cart'][$_POST['movie']]);
     }

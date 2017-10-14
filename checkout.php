@@ -1,13 +1,14 @@
 <?php
 
+include 'config.php';
 session_start();
 
 include 'functions.php';
 
+
 if (!isset($_SESSION['cart']) || empty($_POST)) {
     header("Location: showing.php");
 }
-
 
 $_SESSION['name'] = $_POST['name'];
 $_SESSION['phone'] = $_POST['phone'];
@@ -19,11 +20,12 @@ $_SESSION['email'] = $_POST['email'];
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Encode+Sans" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./css/general.css"/>
-    <link type="text/css" rel="stylesheet" href="./css/customer-details.css"/>
-    <title>Silverado | Your new Dolby cinema</title>
+    <?php
+
+    include_once('./tpl/head.tpl.php');
+
+    ?>
+    <title>Silverado | Your new Dolby cinema - Checkout</title>
 </head>
 
 <body>
@@ -34,9 +36,17 @@ include_once('./tpl/menu.tpl.php');
 
 ?>
 
+<nav>
+    <a class="active" href="./index.php">Home</a>
+    <a href="./showing.php">Now showing</a>
+    <a href="./cart.php">Cart</a>
+</nav>
+
 <main id="checkout">
     <section>
         <h1>Checkout</h1>
+        <p>Your booking has been confirmed. Please find your receipts and tickets below. Thank you for choosing
+            Silverado.</p>
         <?php
         $list = array();
 

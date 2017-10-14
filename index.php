@@ -1,11 +1,18 @@
+<?php
+
+include 'config.php';
+session_start();
+
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Encode+Sans" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./css/general.css"/>
-    <link type="text/css" rel="stylesheet" href="./css/style.css"/>
+    <?php
+
+    include_once('./tpl/head.tpl.php');
+
+    ?>
     <title>Silverado | Your new Dolby cinema</title>
 </head>
 
@@ -16,6 +23,12 @@
 include_once('./tpl/menu.tpl.php');
 
 ?>
+
+<nav>
+    <a class="active" href="./index.php">Home</a>
+    <a href="./showing.php">Now showing</a>
+    <a href="./cart.php">Cart</a>
+</nav>
 
 <main id="home">
     <section class="banner align-center">
@@ -46,7 +59,7 @@ include_once('./tpl/menu.tpl.php');
             <ol>
                 <li>
                     <h4>Normal Seats (40)</h4>
-                    <strong>Boking options:</strong>
+                    <strong>Booking options:</strong>
                     <ul>
                         <li>Full adult</li>
                         <li>Concession adult</li>

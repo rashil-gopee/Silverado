@@ -1,5 +1,6 @@
 <?php
 
+include 'config.php';
 session_start();
 
 include 'functions.php';
@@ -20,11 +21,12 @@ if (!empty($_POST)) {
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Encode+Sans" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./css/general.css"/>
-    <link type="text/css" rel="stylesheet" href="./css/style.css"/>
-    <title>Silverado | Your new Dolby cinema</title>
+    <?php
+
+    include_once('./tpl/head.tpl.php');
+
+    ?>
+    <title>Silverado | Your new Dolby cinema - Cart</title>
 </head>
 
 <body>
@@ -33,6 +35,11 @@ if (!empty($_POST)) {
 include_once('./tpl/menu.tpl.php');
 
 ?>
+<nav>
+    <a href="./index.php">Home</a>
+    <a href="./showing.php">Now showing</a>
+    <a class="active" href="./cart.php">Cart</a>
+</nav>
 
 <main id="cart">
     <section>
@@ -80,22 +87,27 @@ include_once('./tpl/menu.tpl.php');
 
             };
             echo "<label>Grand Total: </label>$" . $grandTotal . "<br>";
-            echo "<a href='customer_details.php'>Proceed to checkout</a>";
-        }
+            echo "<strong><a href='./showing.php' style='text-decoration: underline; color: #68A691;'>Book session for another movie?</a></strong>";
+        } else
+            echo "<strong>You cart is empty. Please <a href='./showing.php' style='text-decoration: underline; color: #68A691;'>book a movie session</a> to continue.</strong>"
 
         ?>
     </section>
 
     <section>
+        <h1>Customer Details</h1>
         <form action="checkout.php" name="form" method="post" onsubmit="return validateForm();">
             <p><label>Your name</label></p>
             <p><input type="text" name="name" required>
             <p><label>Phone number</label></p>
-            <p><input type="text" name="phone" required></p>
+            <p><input type="number" name="phone" required></p>
             <p><label>Email</label></p>
             <p><input type="email" name="email" required></p>
-            <p style="text-align: center;"><input type="submit" value="Proceed to Checkout" name="submit" class="button"
-                                                  onclick="javascript:return validateMyForm();"/></p>
+            <p>
+                <button type="submit" style="float: none;"
+                        onclick="javascript:return validateMyForm();">Proceed to Checkout
+                </button>
+            </p>
         </form>
     </section>
 </main>
@@ -108,11 +120,17 @@ include_once('./tpl/footer.tpl.php');
 <script type="text/javascript">
     function validateForm() {
         var phone = document.forms["form"]["phone"].value;
-        var phonepattern = /^0[0-8]\d{8}$/g;
-        if (phone.match(phonepattern)) {
-            return true;
-        } else {
-            alert("phone number is invalid. Please Enter an australian mobile number ");
+        var name = document.forms["form"]["name"].value;
+        var namePattern = /^[a-zA-Z\s]+$/;
+        var phonePattern = /[0-9]\d{7,9}/;
+
+        if (!name.match(namePattern)) {
+            alert("Invalid name!");
+            return false;
+        }
+
+        if (!phone.match(phonePattern)) {
+            alert("Phone number is invalid. Please Enter an Australian phone number ");
             return false;
         }
     }
